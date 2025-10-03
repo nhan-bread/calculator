@@ -13,6 +13,7 @@ const display = document.querySelector(".display");
 btns.forEach((btn) => btn.addEventListener("click", (e) => {
     if (e.target.classList.contains("digit") && (!operator)) {
         display.textContent += e.target.textContent;
+        firstNum = Number(display.textContent);
     }
     if (e.target.classList.contains("digit") && (operator)) {
         if (!secondNum) {
@@ -20,6 +21,11 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         } else {
             display.textContent += e.target.textContent;
         }
+        secondNum = Number(display.textContent);
+    }
+
+    if (e.target.classList.contains("operator")) {
+        operator = e.target.textContent;
     }
 
     function operate(first, second) {

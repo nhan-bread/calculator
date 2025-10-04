@@ -28,19 +28,23 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         operator = e.target.textContent;
     }
 
+    if (e.target.classList.contains("calculate") && (secondNum)) {
+        operate(firstNum, secondNum);
+    }
+
     function operate(first, second) {
         switch(operator) {
             case "+":
-                add(first, second);
+                display.textContent = add(first, second);
                 break;
             case "-":
-                subtract(first, second);
+                display.textContent = subtract(first, second);
                 break;
             case "*":
-                multiply(first, second);
+                display.textContent = multiply(first, second);
                 break;
             case "÷":
-                divide(first, second);
+                display.textContent = divide(first, second);
                 break;
         }
     }

@@ -12,7 +12,11 @@ const display = document.querySelector(".display");
 
 btns.forEach((btn) => btn.addEventListener("click", (e) => {
     if (e.target.classList.contains("digit") && (!operator)) {
-        display.textContent += e.target.textContent;
+        if (!firstNum) {
+            display.textContent = e.target.textContent;
+        } else {
+            display.textContent += e.target.textContent;
+        }
         firstNum = Number(display.textContent);
     }
     if (e.target.classList.contains("digit") && (operator)) {

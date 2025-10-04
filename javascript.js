@@ -29,6 +29,14 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
     }
 
     if (e.target.classList.contains("operator")) {
+        if ((operator) && (secondNum)) {
+            operate(firstNum, secondNum);
+            firstNum = Number(display.textContent);
+            operator = undefined;
+            secondNum = undefined;
+        } else if (display.textContent) {
+            firstNum = Number(display.textContent);
+        }
         operator = e.target.textContent;
     }
 

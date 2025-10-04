@@ -32,6 +32,13 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         operate(firstNum, secondNum);
     }
 
+    if (e.target.classList.contains("clear")) {
+        display.textContent = "";
+        firstNum = undefined;
+        operator = undefined;
+        secondNum = undefined;
+    }
+
     function operate(first, second) {
         switch(operator) {
             case "+":

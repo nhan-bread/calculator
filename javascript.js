@@ -30,6 +30,9 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
 
     if (e.target.classList.contains("calculate") && (secondNum)) {
         operate(firstNum, secondNum);
+        firstNum = undefined;
+        operator = undefined;
+        secondNum = undefined;
     }
 
     if (e.target.classList.contains("clear")) {

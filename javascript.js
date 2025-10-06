@@ -57,17 +57,22 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
     function operate(first, second) {
         switch(operator) {
             case "+":
-                display.textContent = add(first, second);
+                display.textContent = round(add(first, second), 7);
                 break;
             case "-":
-                display.textContent = subtract(first, second);
+                display.textContent = round(subtract(first, second), 7);
                 break;
             case "*":
-                display.textContent = multiply(first, second);
+                display.textContent = round(multiply(first, second), 7);
                 break;
             case "÷":
-                display.textContent = divide(first, second);
+                display.textContent = round(divide(first, second), 7);
                 break;
         }
+    }
+
+    function round(value, precision) {
+        var multiplier = Math.pow(10, precision || 0);
+        return Math.round(value * multiplier) / multiplier;
     }
 }))

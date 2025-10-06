@@ -29,19 +29,23 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
     }
 
     if (e.target.classList.contains("operator")) {
-        if ((operator) && (secondNum)) {
+        if (!((operator === "÷") && (secondNum === "0"))) {
             operate(Number(firstNum), Number(secondNum));
             firstNum = display.textContent;
             operator = undefined;
             secondNum = undefined;
-        } else if (display.textContent) {
+        } else if (!display.textContent == "You cannot divide by 0!") {
             firstNum = display.textContent;
         }
         operator = e.target.textContent;
     }
 
     if (e.target.classList.contains("calculate") && (secondNum)) {
-        operate(Number(firstNum), Number(secondNum));
+        if (!((operator === "÷") && (secondNum === "0"))) {
+            operate(Number(firstNum), Number(secondNum));
+        } else {
+            display.textContent = "You cannot divide by 0!";
+        }
         firstNum = undefined;
         operator = undefined;
         secondNum = undefined;

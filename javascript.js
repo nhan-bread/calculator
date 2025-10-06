@@ -17,7 +17,7 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         } else {
             display.textContent += e.target.textContent;
         }
-        firstNum = Number(display.textContent);
+        firstNum = display.textContent;
     }
     if (e.target.classList.contains("digit") && (operator)) {
         if (!secondNum) {
@@ -25,23 +25,23 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         } else {
             display.textContent += e.target.textContent;
         }
-        secondNum = Number(display.textContent);
+        secondNum = display.textContent;
     }
 
     if (e.target.classList.contains("operator")) {
         if ((operator) && (secondNum)) {
-            operate(firstNum, secondNum);
-            firstNum = Number(display.textContent);
+            operate(Number(firstNum), Number(secondNum));
+            firstNum = display.textContent;
             operator = undefined;
             secondNum = undefined;
         } else if (display.textContent) {
-            firstNum = Number(display.textContent);
+            firstNum = display.textContent;
         }
         operator = e.target.textContent;
     }
 
     if (e.target.classList.contains("calculate") && (secondNum)) {
-        operate(firstNum, secondNum);
+        operate(Number(firstNum), Number(secondNum));
         firstNum = undefined;
         operator = undefined;
         secondNum = undefined;

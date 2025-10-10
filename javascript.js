@@ -58,6 +58,17 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         secondNum = undefined;
     }
 
+    if (e.target.classList.contains("backspace") && (display.textContent)) {
+        display.textContent = display.textContent.slice(0, -1);
+        if (!operator) {
+            firstNum = display.textContent;
+        } else {
+            secondNum = display.textContent;
+        }
+        console.log(firstNum);
+        console.log(secondNum);
+    }
+
     function operate(first, second) {
         switch(operator) {
             case "+":

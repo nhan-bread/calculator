@@ -56,6 +56,9 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         firstNum = undefined;
         operator = undefined;
         secondNum = undefined;
+        if (!display.textContent) {
+            display.textContent = "0";
+        }
     }
 
     if (e.target.classList.contains("backspace") && (display.textContent)) {
@@ -67,6 +70,9 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
         }
         console.log(firstNum);
         console.log(secondNum);
+        if (!display.textContent) {
+            display.textContent = "0";
+        }
     }
 
     function operate(first, second) {

@@ -36,6 +36,12 @@ btns.forEach((btn) => btn.addEventListener("click", (e) => {
             secondNum = undefined;
         } else if (!display.textContent == "You cannot divide by 0!") {
             firstNum = display.textContent;
+        } else {
+            display.textContent = "You cannot divide by 0!";
+            firstNum = undefined;
+            operator = undefined;
+            secondNum = undefined;
+            return;
         }
         operator = e.target.textContent;
     }
